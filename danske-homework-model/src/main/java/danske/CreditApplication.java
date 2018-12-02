@@ -23,14 +23,14 @@ public class CreditApplication {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @Column(name = "requested_amount")
+    @Column(name = "requested_amount", nullable = false)
     private double requestedAmount;
 
-    @Column(name = "loan_term")
+    @Column(name = "loan_term", nullable = false)
     private int loanTerm;
 
     @ManyToOne
-    @JoinColumn(name = "global_loan_terms_id")
+    @JoinColumn(name = "global_loan_terms_id", nullable = false)
     private LoanTerms globalLoanTerms;
 
     @Transient
