@@ -1,8 +1,8 @@
 package danske.bl.loanTerms.impl;
 
-import danske.LoanTerms;
 import danske.LoanTerms_;
 import danske.bl.loanTerms.LoanTermsRepository;
+import danske.model.LoanTerms;
 import org.springframework.data.jpa.repository.support.JpaEntityInformationSupport;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Component;

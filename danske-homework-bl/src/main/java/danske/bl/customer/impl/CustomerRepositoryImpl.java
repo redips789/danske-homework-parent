@@ -1,10 +1,10 @@
 package danske.bl.customer.impl;
 
-import danske.CreditApplication;
 import danske.CreditApplication_;
-import danske.Customer;
 import danske.Customer_;
 import danske.bl.customer.CustomerRepository;
+import danske.model.CreditApplication;
+import danske.model.Customer;
 import danske.model.CustomerWithTotalCreditAmountView;
 import org.springframework.data.jpa.repository.support.JpaEntityInformationSupport;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;

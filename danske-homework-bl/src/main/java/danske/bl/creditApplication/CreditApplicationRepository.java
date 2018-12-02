@@ -1,6 +1,6 @@
 package danske.bl.creditApplication;
 
-import danske.CreditApplication;
+import danske.model.CreditApplication;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 

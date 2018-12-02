@@ -1,9 +1,9 @@
 package danske.bl.creditApplication.impl;
 
-import danske.CreditApplication;
 import danske.CreditApplication_;
 import danske.Customer_;
 import danske.bl.creditApplication.CreditApplicationRepository;
+import danske.model.CreditApplication;
 import org.springframework.data.jpa.repository.support.JpaEntityInformationSupport;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Component;

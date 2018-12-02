@@ -1,6 +1,6 @@
 package danske.bl.customer;
 
-import danske.Customer;
+import danske.model.Customer;
 import danske.model.CustomerWithTotalCreditAmountView;
 import org.springframework.data.jpa.repository.JpaRepository;
 

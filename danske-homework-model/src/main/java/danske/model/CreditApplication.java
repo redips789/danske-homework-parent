@@ -1,4 +1,4 @@
-package danske;
+package danske.model;
 
 import lombok.Getter;
 import lombok.Setter;

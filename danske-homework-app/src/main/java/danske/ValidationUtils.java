@@ -1,5 +1,8 @@
 package danske;
 
+import danske.model.CreditApplication;
+import danske.model.Customer;
+import danske.model.LoanTerms;
 import org.apache.commons.lang3.StringUtils;
 
 public class ValidationUtils {
