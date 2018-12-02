@@ -9,6 +9,6 @@ import java.util.List;
 @NoRepositoryBean
 public interface CreditApplicationRepository extends JpaRepository<CreditApplication, Long> {
 
-    List<CreditApplication> getCreditApplicationsByCustomerId(Long id);
+    List<CreditApplication> getCreditApplicationsByCustomerId(Long customerId);
 
 }

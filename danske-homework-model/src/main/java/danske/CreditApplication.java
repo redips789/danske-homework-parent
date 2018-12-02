@@ -1,5 +1,8 @@
 package danske;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +15,8 @@ import javax.persistence.Transient;
 
 @Entity
 @Table(name = "credit_application")
+@Getter
+@Setter
 public class CreditApplication {
 
     @Id
@@ -37,45 +42,5 @@ public class CreditApplication {
     public double getMonthlyPayments() {
         double annualInterestRate = globalLoanTerms.getAnnualInterestRate();
         return ((annualInterestRate / 12) * requestedAmount) / (1 - Math.pow((1 + annualInterestRate / 12), loanTerm));
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public double getRequestedAmount() {
-        return requestedAmount;
-    }
-
-    public void setRequestedAmount(double requestedAmount) {
-        this.requestedAmount = requestedAmount;
-    }
-
-    public int getLoanTerm() {
-        return loanTerm;
-    }
-
-    public void setLoanTerm(int loanTerm) {
-        this.loanTerm = loanTerm;
-    }
-
-    public LoanTerms getGlobalLoanTerms() {
-        return globalLoanTerms;
-    }
-
-    public void setGlobalLoanTerms(LoanTerms globalLoanTerms) {
-        this.globalLoanTerms = globalLoanTerms;
     }
 }

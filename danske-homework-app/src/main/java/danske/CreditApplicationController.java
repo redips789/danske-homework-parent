@@ -4,9 +4,10 @@ import danske.bl.creditApplication.CreditApplicationRepository;
 import danske.bl.customer.CustomerRepository;
 import danske.bl.loanTerms.LoanTermsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -23,15 +24,15 @@ public class CreditApplicationController {
     @Autowired
     private CreditApplicationRepository creditApplicationRepository;
 
-    @RequestMapping("/createCreditApplication")
+    @RequestMapping(value = "/creditApplication/create", method = RequestMethod.POST)
     public CreditApplication createCreditApplication(@RequestBody CreditApplication creditApplication) {
         creditApplicationRepository.save(creditApplication);
         //return new CreditApplicationView(customerId, amount, term, creditApplication.getMonthlyPayments());
         return null;
     }
 
-    @RequestMapping("/getCustomerCreditApplications")
-    public List<CreditApplication> getCustomerCreditApplications(@RequestParam(value = "customerId") Long customerId) {
+    @RequestMapping(value = "/customer/{customerId}/allCreditApplications", method = RequestMethod.GET)
+    public List<CreditApplication> getCustomerCreditApplications(@PathVariable(value = "customerId") Long customerId) {
         return creditApplicationRepository.getCreditApplicationsByCustomerId(customerId);
     }
 }

@@ -6,10 +6,8 @@ import danske.Customer;
 import danske.Customer_;
 import danske.bl.customer.CustomerRepository;
 import danske.model.CustomerWithTotalCreditAmountView;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.support.JpaEntityInformationSupport;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
@@ -33,10 +31,6 @@ public class CustomerRepositoryImpl extends SimpleJpaRepository<Customer, Long> 
     @PersistenceContext
     private EntityManager em;
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
-
-    @Autowired
     public CustomerRepositoryImpl(EntityManager entityManager) {
         super(JpaEntityInformationSupport.getEntityInformation(Customer.class, entityManager), entityManager);
     }
@@ -58,6 +52,7 @@ public class CustomerRepositoryImpl extends SimpleJpaRepository<Customer, Long> 
         criteriaQuery.groupBy(firstName, lastName, socialSecurityNumber);
         criteriaQuery.orderBy(cb.desc(cb.sum(creditApplicationJoin.get(CreditApplication_.requestedAmount))));
 
-        return em.createQuery(criteriaQuery).getResultList().stream().map(t -> new CustomerWithTotalCreditAmountView(t.get(firstName), t.get(lastName), t.get(socialSecurityNumber), t.get(totalAmount))).collect(Collectors.toList());
+        return em.createQuery(criteriaQuery).getResultList().stream().map(t -> new CustomerWithTotalCreditAmountView(t.get(firstName), t.get(lastName), t.get(socialSecurityNumber),
+                t.get(totalAmount))).collect(Collectors.toList());
     }
 }

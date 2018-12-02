@@ -37,7 +37,7 @@ public class ValidationUtils {
             throw new IllegalArgumentException("Email is too long. Email should be no more than 255 symbols long");
         }
 
-        if (customer.getMonthlyIncome() == null || customer.getMonthlyIncome() < 0) {
+        if (customer.getMonthlyIncome() < 0) {
             throw new IllegalArgumentException("Monthly income is required and should be positive");
         }
 
